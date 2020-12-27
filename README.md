@@ -1,6 +1,6 @@
 # 2WS20-Modeling
 
-#How to _properly_ look at the code
+# How to _properly_ look at the code
 
 1. Click on the green button which says _Code_
 2. Select _Download ZIP_
