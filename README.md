@@ -7,7 +7,7 @@
 3. Open the zip and put the folder in a convenient directory
 
 You can now look at the code and edit it via Visual Studio Code or Notepad ++ or you can just look at it via Jupyter.
-#How to run it 
+# How to run it 
 1. Windows button + R
 2. In the text window type cmd
 3. Type `python` and a space _do not press enter yet!_
