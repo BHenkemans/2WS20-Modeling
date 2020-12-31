@@ -1,6 +1,9 @@
 # Is Java not faster??
 from Person import Person  # Custom person class
 import numpy as np  # Numpy
+import time
+
+start = time.time()  # Start timer
 
 amountOfPeople = 10000  # Amount of random "second" people that will be generated
 amountOfExperiments = 100000  # Amount of random people that will be generated and compared
@@ -16,3 +19,6 @@ for i in range(amountOfExperiments):
 
 averageProb = np.mean(probArray)  # Generate the average probability
 print(averageProb)  # Print the average probability
+
+end = time.time()  # End timer
+print("{time: .2f}s elapsed".format(time = end - start))  # Print time elapsed
