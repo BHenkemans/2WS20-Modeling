@@ -1,4 +1,3 @@
-# Is Java not faster??
 from Person import Person  # Custom person class
 import numpy as np  # Numpy
 import time
