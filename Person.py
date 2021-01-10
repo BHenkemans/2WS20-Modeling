@@ -29,6 +29,51 @@ def generateRandomFaceWidth(mean_width=15.2, stdev_width=0.5):
     return mean_width + np.random.normal() * stdev_width
 
 
+def generatePupillaryWidth(mean_width=63.2, stdev_width=3.5):
+    return mean_width + np.random.normal() * stdev_width
+
+
+def generateIsFemale():
+    """" Generates a gender. If the gender is female, the gender will be True"""
+    random_val = random.random()
+    if random_val <= 0.50581395348:
+        return True
+    return False
+
+
+def generateHasIphone():
+    """ Decides whether or not someone has an iPhone """
+    random_val = random.random()
+    if random_val <= 0.3673:
+        return True
+    return False
+
+
+def generateDistNoseLip(mean=1.5, stdev=0.15):
+    """ Generates distance between nose and lip"""
+    return mean + np.random.normal() * stdev
+
+
+def generateLengthHead(mean=20, stdev=2.0):
+    """ Generates length head"""
+    return mean + np.random.normal() * stdev
+
+
+def generateWidthEarringToEarring(mean=17.5, stdev=2):
+    """" Generates distance between earrings"""
+    return mean + np.random.normal() * stdev
+
+
+def generateDistNoseChin(mean=7, stdev=1):
+    """" Generates distance between nose and chin"""
+    return mean + np.random.normal() * stdev
+
+
+def generateForehead(mean=8, stdev=1):
+    """" Generates a length of the forehead"""
+    return mean + np.random.normal() * stdev
+
+
 class Person:
     """"A class which describes a random person.
     The constructor randomly decides the persons facial attributes."""
@@ -41,11 +86,33 @@ class Person:
 
         self.faceWidth = generateRandomFaceWidth()
 
+        self.pupillaryWidth = generatePupillaryWidth()
+
+        self.isFemale = generateIsFemale()
+
+        self.hasIphone = generateHasIphone()
+
+        self.distNoseLip = generateDistNoseLip()
+
+        self.lengthHead = generateLengthHead()
+
+        self.widthEarringToEarring = generateWidthEarringToEarring()
+
+        self.distNoseChin = generateDistNoseChin()
+
+        self.lengthForehead = generateForehead()
+
     def isPersonEqual(self, secondperson, err):
         """" Returns True or False depending on whether or not the faces match. Faces match if the eye colour and
         hair tint match and if the width of the face is relatively close. """
         if self.eyeColor == secondperson.eyeColor \
                 and self.hairColor == secondperson.hairColor \
-                and secondperson.faceWidth - err <= self.faceWidth <= secondperson.faceWidth + err:
+                and secondperson.faceWidth - err <= self.faceWidth <= secondperson.faceWidth + err \
+                and secondperson.pupillaryWidth - err <= self.pupillaryWidth <= self.pupillaryWidth + err \
+                and secondperson.isFemale == self.isFemale:
             return True
         return False
+
+    def isVulnerable(self):
+        """" Returns if a person has an iPhone and hence is vulnerable to a doppleganger"""
+        return self.hasIphone
