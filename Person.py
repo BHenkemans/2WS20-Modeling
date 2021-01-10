@@ -102,16 +102,6 @@ class Person:
 
         self.lengthForehead = generateForehead()
 
-    def isPersonEqual(self, secondperson, err):
-        """" Returns True or False depending on whether or not the faces match. Faces match if the eye colour and
-        hair tint match and if the width of the face is relatively close. """
-        if self.eyeColor == secondperson.eyeColor \
-                and self.hairColor == secondperson.hairColor \
-                and secondperson.faceWidth - err <= self.faceWidth <= secondperson.faceWidth + err \
-                and secondperson.pupillaryWidth - err <= self.pupillaryWidth <= self.pupillaryWidth + err \
-                and secondperson.isFemale == self.isFemale:
-            return True
-        return False
 
     def isVulnerable(self):
         """" Returns if a person has an iPhone and hence is vulnerable to a doppleganger"""
