@@ -1,6 +1,7 @@
 from Person import Person  # Custom person class
 import time
 import csv
+import sys
 
 start = time.time()  # Start timer
 
@@ -17,7 +18,7 @@ with open('result.csv', 'w', newline='', encoding='utf-8') as csvfile:
         matchAndIphone = 0
         for j in range(amountOfPeople):
             secondperson = Person()
-            if newPerson.isPersonEqualRelErr(secondperson=secondperson, relError=0):  # If statement which checks if people match
+            if newPerson.isPersonEqualRelErr(secondperson=secondperson, relError=float(sys.argv[1])):  # If statement which checks if people match
                 match += 1  # If a match occurs, increase the match counter
                 if newPerson.isVulnerable() or secondperson.isVulnerable():
                     matchAndIphone += 1
