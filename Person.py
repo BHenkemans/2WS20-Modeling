@@ -80,17 +80,18 @@ class Person:
 
     def __init__(self):
         """" Constructor """
+        # True or False, there is no relative error
         self.eyeColor = generateRandomEye()
 
         self.hairColor = generateRandomHair()
 
-        self.faceWidth = generateRandomFaceWidth()
-
-        self.pupillaryWidth = generatePupillaryWidth()
-
         self.isFemale = generateIsFemale()
 
         self.hasIphone = generateHasIphone()
+        # There is a relative error
+        self.faceWidth = generateRandomFaceWidth()
+
+        self.pupillaryWidth = generatePupillaryWidth()
 
         self.distNoseLip = generateDistNoseLip()
 
@@ -101,6 +102,24 @@ class Person:
         self.distNoseChin = generateDistNoseChin()
 
         self.lengthForehead = generateForehead()
+
+
+    def isPersonEqualRelErr(self, secondperson, relError):
+        """ In this function a relativer error is produced per feature, if this error exceeds a certain number a person
+        is deemed to not be a doppelganger. If a person differs from one or more not cont. var they are certainly not a
+        doppelganger """
+        if self.eyeColor != secondperson.eyeColor or self.hairColor != secondperson.hairColor or \
+                self.isFemale != secondperson.isFemale:
+            return False
+        if np.abs(self.faceWidth - secondperson.faceWidth) / np.abs(self.faceWidth) > relError or \
+                np.abs(self.pupillaryWidth - self.pupillaryWidth) / np.abs(self.pupillaryWidth) > relError or \
+                np.abs(self.distNoseLip - secondperson.distNoseLip) / np.abs(self.distNoseLip) > relError or\
+                np.abs(self.lengthHead - secondperson.lengthHead) / np.abs(self.lengthHead) > relError or \
+                np.abs(self.widthEarringToEarring - secondperson.widthEarringToEarring) / np.abs(self.widthEarringToEarring) > relError or \
+                np.abs(self.distNoseChin - secondperson.distNoseChin) / np.abs(self.distNoseChin) > relError or \
+                np.abs(self.lengthForehead - secondperson.lengthForehead)/ np.abs(self.lengthForehead) > relError:
+            return False
+        return True
 
 
     def isVulnerable(self):
