@@ -5,7 +5,7 @@ import sys
 
 start = time.time()  # Start timer
 
-amountOfPeople = 100  # Amount of random "second" people that will be generated
+amountOfPeople = 10000  # Amount of random "second" people that will be generated
 amountOfExperiments = 100000  # Amount of random people that will be generated and compared
 
 with open('result.csv', 'w', newline='', encoding='utf-8') as csvfile:
