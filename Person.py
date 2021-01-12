@@ -112,7 +112,7 @@ class Person:
                 self.isFemale != secondperson.isFemale:
             return False
         if np.abs(self.faceWidth - secondperson.faceWidth) / np.abs(self.faceWidth) > relError or \
-                np.abs(self.pupillaryWidth - self.pupillaryWidth) / np.abs(self.pupillaryWidth) > relError or \
+                np.abs(self.pupillaryWidth - secondperson.pupillaryWidth) / np.abs(self.pupillaryWidth) > relError or \
                 np.abs(self.distNoseLip - secondperson.distNoseLip) / np.abs(self.distNoseLip) > relError or\
                 np.abs(self.lengthHead - secondperson.lengthHead) / np.abs(self.lengthHead) > relError or \
                 np.abs(self.widthEarringToEarring - secondperson.widthEarringToEarring) / np.abs(self.widthEarringToEarring) > relError or \
