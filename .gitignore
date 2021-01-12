@@ -1,4 +1,3 @@
 # Project exclude paths
-/venv/
-.idea
-result.csv
+Python Model/venv/
+Python Model/.idea
